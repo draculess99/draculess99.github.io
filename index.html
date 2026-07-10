@@ -536,40 +536,6 @@
       color: #eaf2ff;
     }
 
-    .mermaid-box {
-      overflow-x: auto;
-      width: 100%;
-      padding: 32px 0;
-      text-align: center;
-    }
-
-    .mermaid-box svg {
-      max-width: none !important;
-      min-width: 1180px;
-      width: 1180px !important;
-      height: auto !important;
-      margin: 0 auto;
-      display: block;
-    }
-
-    .mermaid-box .node rect,
-    .mermaid-box .node polygon,
-    .mermaid-box .node path {
-      rx: 12px;
-      ry: 12px;
-    }
-
-    .mermaid-box .nodeLabel,
-    .mermaid-box .label,
-    .mermaid-box span,
-    .mermaid-box text {
-      text-align: center !important;
-      line-height: 1.05 !important;
-      white-space: nowrap !important;
-      font-weight: 800 !important;
-      font-size: 11px !important;
-    }
-
     .notice {
       margin-top: 22px;
       padding: 18px;
@@ -865,65 +831,64 @@
     'tertiaryColor': '#0b1220',
     'clusterBkg': 'rgba(15, 23, 42, 0.35)',
     'clusterBorder': '#60a5fa',
-    'fontFamily': 'Arial',
-    'fontSize': '11px'
+    'fontFamily': 'Arial'
   },
   'flowchart': {
-    'htmlLabels': false,
-    'useMaxWidth': false,
-    'nodeSpacing': 120,
-    'rankSpacing': 95,
+    'htmlLabels': true,
+    'useMaxWidth': true,
+    'nodeSpacing': 45,
+    'rankSpacing': 68,
     'curve': 'basis'
   }
 }}%%
 flowchart TB
-    A[Project Inputs — Healthcare + Warehouse]
-    B[Application Layer — Streamlit + Flask]
+    A["<div class='m-node'>Project Inputs<br/>Healthcare + Warehouse Signals</div>"]
+    B["<div class='m-node'>Application Layer<br/>Streamlit UI + Flask API</div>"]
     A --> B
 
-    subgraph L1[Prediction + Guardrail Layer]
+    subgraph L1["Prediction + Guardrail Layer"]
       direction LR
-      C[ML Forecasting — XGBoost Models]
-      D[Rule Guardrails — Safety + Ops Logic]
+      C["<div class='m-node'>ML Forecasting<br/>XGBoost + Features</div>"]
+      D["<div class='m-node'>Deterministic Rules<br/>Safety + Operations Guardrails</div>"]
     end
 
     B --> C
     B --> D
 
-    E[Generated Recommendation — Risk + Rationale + Action]
+    E["<div class='m-node'>Generated Recommendation<br/>Risk + Rationale + Next Action</div>"]
     C --> E
     D --> E
 
-    subgraph L2[Command Agent Layer]
+    subgraph L2["Command Agent Layer"]
       direction LR
-      F1[Safety Sentinel — Risk Review]
-      F2[Flow Coordinator — Queue Priority]
-      F3[Documentation Agent — SBAR + Audit]
+      F1["<div class='m-node'>Safety Sentinel<br/>Risk Review</div>"]
+      F2["<div class='m-node'>Flow Coordinator<br/>Queue Priority</div>"]
+      F3["<div class='m-node'>Documentation Agent<br/>SBAR + Audit Summary</div>"]
     end
 
     E --> F1
     E --> F2
     E --> F3
 
-    G[Human Decision — Nurse / Manager / Operator]
+    G["<div class='m-node'>Human Decision<br/>Nurse / Manager / Operator</div>"]
+
     F1 --> G
     F2 --> G
     F3 --> G
 
-    subgraph L3[Workflow Output Layer]
+    subgraph L3["Workflow Output Layer"]
       direction LR
-      H[Audit Trail — Decision History]
-      I[Queue / Board — Workflow Control]
-      J[Portfolio Output — Actionable AI Demo]
+      H["<div class='m-node'>Audit Trail<br/>Decision History</div>"]
+      I["<div class='m-node'>Queue / Board<br/>Workflow Control</div>"]
+      J["<div class='m-node'>Portfolio Output<br/>Actionable AI Demo</div>"]
     end
 
     G --> H
     G --> I
     I --> J
 
-    classDef default fill:#0f2237,stroke:#38bdf8,stroke-width:1.6px,color:#eaf2ff,rx:14,ry:14,font-size:11px;
-    classDef layer fill:#0b1728,stroke:#60a5fa,stroke-width:1.2px,color:#eaf2ff,font-size:11px;
-</pre>
+    classDef default fill:#0f2237,stroke:#38bdf8,stroke-width:1.6px,color:#eaf2ff,rx:14,ry:14;
+          </pre>
         </div>
       </div>
     </section>
@@ -1010,10 +975,10 @@ flowchart TB
       theme: 'base',
       securityLevel: 'loose',
       flowchart: {
-        htmlLabels: false,
-        useMaxWidth: false,
-        nodeSpacing: 120,
-        rankSpacing: 95,
+        htmlLabels: true,
+        useMaxWidth: true,
+        nodeSpacing: 45,
+        rankSpacing: 68,
         curve: 'basis'
       },
       themeVariables: {
@@ -1027,8 +992,7 @@ flowchart TB
         tertiaryColor: '#0b1220',
         clusterBkg: 'rgba(15, 23, 42, 0.35)',
         clusterBorder: '#60a5fa',
-        fontFamily: 'Arial',
-        fontSize: '11px'
+        fontFamily: 'Arial'
       }
     });
   </script>
