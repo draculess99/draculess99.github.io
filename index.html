@@ -846,7 +846,7 @@ flowchart TB
     B["<div class='m-node'>Application Layer<br/>Streamlit UI + Flask API</div>"]
     A --> B
 
-    subgraph L1["Prediction + Guardrail Layer"]
+    subgraph L1["Prediction&nbsp;+&nbsp;Guardrail&nbsp;Layer"]
       direction LR
       C["<div class='m-node'>ML Forecasting<br/>XGBoost + Features</div>"]
       D["<div class='m-node'>Deterministic Rules<br/>Safety + Operations Guardrails</div>"]
@@ -859,7 +859,7 @@ flowchart TB
     C --> E
     D --> E
 
-    subgraph L2["Command Agent Layer"]
+    subgraph L2["Command&nbsp;Agent&nbsp;Layer"]
       direction LR
       F1["<div class='m-node'>Safety Sentinel<br/>Risk Review</div>"]
       F2["<div class='m-node'>Flow Coordinator<br/>Queue Priority</div>"]
@@ -876,7 +876,7 @@ flowchart TB
     F2 --> G
     F3 --> G
 
-    subgraph L3["Workflow Output Layer"]
+    subgraph L3["Workflow&nbsp;Output&nbsp;Layer"]
       direction LR
       H["<div class='m-node'>Audit Trail<br/>Decision History</div>"]
       I["<div class='m-node'>Queue / Board<br/>Workflow Control</div>"]
