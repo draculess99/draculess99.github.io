@@ -9,20 +9,20 @@
     :root {
       --bg: #050816;
       --bg2: #07111f;
-      --panel: rgba(15, 23, 42, 0.82);
-      --panel2: rgba(17, 34, 64, 0.76);
-      --card: rgba(17, 28, 46, 0.78);
-      --card2: rgba(8, 21, 39, 0.92);
+      --panel: rgba(15, 23, 42, 0.86);
+      --panel2: rgba(15, 31, 55, 0.78);
+      --card: rgba(15, 23, 42, 0.82);
+      --card2: rgba(8, 21, 39, 0.94);
       --text: #eaf2ff;
       --muted: #a9b6ca;
       --blue: #38bdf8;
-      --cyan: #22d3ee;
-      --green: #22c55e;
-      --yellow: #facc15;
-      --orange: #fb923c;
+      --cyan: #7dd3fc;
+      --green: #38bdf8;
+      --yellow: #93c5fd;
+      --orange: #60a5fa;
       --red: #fb7185;
-      --purple: #a78bfa;
-      --pink: #f472b6;
+      --purple: #60a5fa;
+      --pink: #93c5fd;
       --border: rgba(148, 163, 184, 0.22);
       --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
     }
@@ -36,9 +36,8 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.20), transparent 31%),
-        radial-gradient(circle at 82% 4%, rgba(167, 139, 250, 0.22), transparent 30%),
-        radial-gradient(circle at 50% 105%, rgba(34, 197, 94, 0.13), transparent 28%),
+        radial-gradient(circle at 16% 10%, rgba(56, 189, 248, 0.16), transparent 32%),
+        radial-gradient(circle at 82% 4%, rgba(96, 165, 250, 0.12), transparent 30%),
         linear-gradient(180deg, var(--bg), #020617 78%);
       line-height: 1.6;
       overflow-x: hidden;
@@ -82,7 +81,7 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
       box-shadow: 0 14px 32px rgba(56, 189, 248, 0.26);
     }
 
@@ -127,7 +126,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #e0f2fe, var(--blue), var(--purple), var(--pink));
+      background: linear-gradient(90deg, #e0f2fe, #38bdf8, #93c5fd);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -165,13 +164,13 @@
     .btn:hover { text-decoration: none; transform: translateY(-1px); }
 
     .btn.primary {
-      background: linear-gradient(135deg, #0284c7, #7c3aed);
+      background: linear-gradient(135deg, #0284c7, #2563eb);
       border-color: transparent;
       color: white;
     }
 
     .btn.success {
-      background: linear-gradient(135deg, #16a34a, #0891b2);
+      background: linear-gradient(135deg, #0369a1, #0891b2);
       border-color: transparent;
       color: white;
     }
@@ -214,10 +213,10 @@
       height: 9px;
       border-radius: 999px;
       margin-right: 6px;
-      background: var(--red);
+      background: #64748b;
     }
-    .dots span:nth-child(2) { background: var(--yellow); }
-    .dots span:nth-child(3) { background: var(--green); }
+    .dots span:nth-child(2) { background: #38bdf8; }
+    .dots span:nth-child(3) { background: #93c5fd; }
 
     .command-card {
       position: relative;
@@ -260,9 +259,13 @@
       border: 1px solid var(--border);
       white-space: nowrap;
     }
-    .health { color: #bbf7d0; background: rgba(34, 197, 94, 0.11); border-color: rgba(34, 197, 94, 0.28); }
-    .ops { color: #bae6fd; background: rgba(56, 189, 248, 0.10); border-color: rgba(56, 189, 248, 0.28); }
-    .cross { color: #fef08a; background: rgba(250, 204, 21, 0.10); border-color: rgba(250, 204, 21, 0.26); }
+    .health,
+    .ops,
+    .cross {
+      color: #dbeafe;
+      background: rgba(96, 165, 250, 0.10);
+      border-color: rgba(96, 165, 250, 0.28);
+    }
 
     .mini-metrics {
       display: grid;
@@ -322,7 +325,7 @@
       position: absolute;
       inset: 0 0 auto 0;
       height: 5px;
-      background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+      background: linear-gradient(90deg, #38bdf8, #60a5fa);
     }
 
     .project-head {
@@ -423,7 +426,7 @@
       right: -14px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--yellow);
+      color: #7dd3fc;
       font-weight: 900;
       font-size: 1.3rem;
       z-index: 3;
@@ -482,27 +485,55 @@
       text-align: center;
     }
 
+    .mermaid-box svg {
+      max-width: 1150px !important;
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 auto;
+      display: block;
+    }
+
     .mermaid-box .nodeLabel,
     .mermaid-box foreignObject div,
     .mermaid-box .label {
       text-align: center !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      line-height: 1.2 !important;
+      line-height: 1.18 !important;
       white-space: normal !important;
     }
 
+    .mermaid-box .cluster rect {
+      fill: rgba(15, 23, 42, 0.35) !important;
+      stroke: rgba(96, 165, 250, 0.35) !important;
+      stroke-width: 1px !important;
+      rx: 14px !important;
+    }
+
+    .mermaid-box .cluster-label {
+      color: #bfdbfe !important;
+      font-weight: 800 !important;
+    }
+
+    .mermaid-box .edgePath path {
+      stroke: #7dd3fc !important;
+      stroke-width: 2px !important;
+    }
+
+    .mermaid-box .arrowheadPath {
+      fill: #7dd3fc !important;
+    }
+
     .m-node {
-      width: 100%;
-      height: 100%;
+      min-width: 142px;
+      max-width: 175px;
+      min-height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       line-height: 1.2;
-      padding: 0 8px;
+      padding: 6px 10px;
       font-weight: 800;
+      color: #eaf2ff;
     }
 
     .notice {
@@ -787,20 +818,76 @@
       <div class="architecture-wrap">
         <div class="mermaid-box">
           <pre class="mermaid">
-%%{init: {'theme': 'dark', 'flowchart': {'htmlLabels': true, 'nodeSpacing': 70, 'rankSpacing': 78, 'curve': 'basis'}}}%%
-flowchart TD
-    A["<div class='m-node'>Project Inputs<br/>Healthcare + Warehouse Signals</div>"] --> B["<div class='m-node'>Streamlit / Flask<br/>Application Layer</div>"]
-    B --> C["<div class='m-node'>ML Forecasting<br/>XGBoost + Features</div>"]
-    B --> D["<div class='m-node'>Deterministic Rules<br/>Safety + Operations Guardrails</div>"]
-    C --> E["<div class='m-node'>Generated<br/>Recommendation</div>"]
-    D --> E
-    E --> F["<div class='m-node'>Command Agents<br/>Explain + Coordinate + Document</div>"]
-    F --> G["<div class='m-node'>Human Override<br/>Nurse / Manager / Operator</div>"]
-    G --> H["<div class='m-node'>Audit Trail<br/>Decision History</div>"]
-    G --> I["<div class='m-node'>Queue / Board<br/>Workflow Control</div>"]
-    I --> J["<div class='m-node'>Portfolio Output<br/>Actionable AI Demo</div>"]
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'darkMode': true,
+    'background': '#0f172a',
+    'primaryColor': '#0f2237',
+    'primaryTextColor': '#eaf2ff',
+    'primaryBorderColor': '#38bdf8',
+    'lineColor': '#7dd3fc',
+    'secondaryColor': '#111827',
+    'tertiaryColor': '#0b1220',
+    'clusterBkg': 'rgba(15, 23, 42, 0.35)',
+    'clusterBorder': '#60a5fa',
+    'fontFamily': 'Arial'
+  },
+  'flowchart': {
+    'htmlLabels': true,
+    'useMaxWidth': true,
+    'nodeSpacing': 45,
+    'rankSpacing': 68,
+    'curve': 'basis'
+  }
+}}%%
+flowchart TB
+    A["<div class='m-node'>Project Inputs<br/>Healthcare + Warehouse Signals</div>"]
+    B["<div class='m-node'>Application Layer<br/>Streamlit UI + Flask API</div>"]
+    A --> B
 
-    classDef default fill:#0f2237,stroke:#38bdf8,stroke-width:1.5px,color:#eaf2ff,rx:12,ry:12;
+    subgraph L1["Prediction + Guardrail Layer"]
+      direction LR
+      C["<div class='m-node'>ML Forecasting<br/>XGBoost + Features</div>"]
+      D["<div class='m-node'>Deterministic Rules<br/>Safety + Operations Guardrails</div>"]
+    end
+
+    B --> C
+    B --> D
+
+    E["<div class='m-node'>Generated Recommendation<br/>Risk + Rationale + Next Action</div>"]
+    C --> E
+    D --> E
+
+    subgraph L2["Command Agent Layer"]
+      direction LR
+      F1["<div class='m-node'>Safety Sentinel<br/>Risk Review</div>"]
+      F2["<div class='m-node'>Flow Coordinator<br/>Queue Priority</div>"]
+      F3["<div class='m-node'>Documentation Agent<br/>SBAR + Audit Summary</div>"]
+    end
+
+    E --> F1
+    E --> F2
+    E --> F3
+
+    G["<div class='m-node'>Human Decision<br/>Nurse / Manager / Operator</div>"]
+
+    F1 --> G
+    F2 --> G
+    F3 --> G
+
+    subgraph L3["Workflow Output Layer"]
+      direction LR
+      H["<div class='m-node'>Audit Trail<br/>Decision History</div>"]
+      I["<div class='m-node'>Queue / Board<br/>Workflow Control</div>"]
+      J["<div class='m-node'>Portfolio Output<br/>Actionable AI Demo</div>"]
+    end
+
+    G --> H
+    G --> I
+    I --> J
+
+    classDef default fill:#0f2237,stroke:#38bdf8,stroke-width:1.6px,color:#eaf2ff,rx:14,ry:14;
           </pre>
         </div>
       </div>
@@ -885,12 +972,27 @@ flowchart TD
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({
       startOnLoad: true,
-      theme: 'dark',
+      theme: 'base',
+      securityLevel: 'loose',
       flowchart: {
         htmlLabels: true,
-        nodeSpacing: 70,
-        rankSpacing: 78,
+        useMaxWidth: true,
+        nodeSpacing: 45,
+        rankSpacing: 68,
         curve: 'basis'
+      },
+      themeVariables: {
+        darkMode: true,
+        background: '#0f172a',
+        primaryColor: '#0f2237',
+        primaryTextColor: '#eaf2ff',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#7dd3fc',
+        secondaryColor: '#111827',
+        tertiaryColor: '#0b1220',
+        clusterBkg: 'rgba(15, 23, 42, 0.35)',
+        clusterBorder: '#60a5fa',
+        fontFamily: 'Arial'
       }
     });
   </script>
