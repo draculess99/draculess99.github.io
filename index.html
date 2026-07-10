@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wil Low / Draculess99 | AI Command Center Portfolio</title>
-  <meta name="description" content="Wil Low / Draculess99's AI portfolio: healthcare triage, staffing control towers, hospital supply forecasting, and warehouse workforce forecasting using Python, Streamlit, Flask, XGBoost, agentic AI, Groq, Gemini, and human-in-the-loop decision support." />
+  <meta name="description"
+    content="Wil Low / Draculess99's AI portfolio: healthcare triage, staffing control towers, hospital supply forecasting, and warehouse workforce forecasting using Python, Streamlit, Flask, XGBoost, agentic AI, Groq, Gemini, and human-in-the-loop decision support." />
   <style>
     :root {
       --bg: #050816;
@@ -27,9 +29,13 @@
       --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -43,11 +49,24 @@
       overflow-x: hidden;
     }
 
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
 
-    .container { width: min(1160px, 92%); margin: 0 auto; }
-    .container-wide { width: min(1420px, 96%); margin: 0 auto; }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+    }
+
+    .container-wide {
+      width: min(1420px, 96%);
+      margin: 0 auto;
+    }
 
     header {
       position: sticky;
@@ -161,7 +180,10 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
     }
 
-    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
 
     .btn.primary {
       background: linear-gradient(135deg, #0284c7, #2563eb);
@@ -215,8 +237,14 @@
       margin-right: 6px;
       background: #64748b;
     }
-    .dots span:nth-child(2) { background: #38bdf8; }
-    .dots span:nth-child(3) { background: #93c5fd; }
+
+    .dots span:nth-child(2) {
+      background: #38bdf8;
+    }
+
+    .dots span:nth-child(3) {
+      background: #93c5fd;
+    }
 
     .command-card {
       position: relative;
@@ -235,7 +263,10 @@
       padding: 14px 0;
       border-bottom: 1px solid rgba(148, 163, 184, 0.16);
     }
-    .command-row:last-child { border-bottom: none; }
+
+    .command-row:last-child {
+      border-bottom: none;
+    }
 
     .project-icon {
       width: 54px;
@@ -248,8 +279,16 @@
       border: 1px solid rgba(56, 189, 248, 0.25);
     }
 
-    .command-row h3 { margin: 0 0 2px; font-size: 1rem; }
-    .command-row p { margin: 0; color: var(--muted); font-size: 0.88rem; }
+    .command-row h3 {
+      margin: 0 0 2px;
+      font-size: 1rem;
+    }
+
+    .command-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
 
     .status-pill {
       padding: 7px 10px;
@@ -259,6 +298,7 @@
       border: 1px solid var(--border);
       white-space: nowrap;
     }
+
     .health,
     .ops,
     .cross {
@@ -281,18 +321,35 @@
       padding: 14px;
       text-align: center;
     }
-    .mini-metric strong { display: block; font-size: 1.4rem; line-height: 1.1; }
-    .mini-metric span { color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; }
 
-    section { padding: 62px 0; }
+    .mini-metric strong {
+      display: block;
+      font-size: 1.4rem;
+      line-height: 1.1;
+    }
 
-    .section-title { margin-bottom: 28px; }
+    .mini-metric span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    section {
+      padding: 62px 0;
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+    }
+
     .section-title h2 {
       margin: 0 0 12px;
       font-size: clamp(2rem, 4.4vw, 3.4rem);
       line-height: 1;
       letter-spacing: -0.055em;
     }
+
     .section-title p {
       margin: 0;
       max-width: 860px;
@@ -347,8 +404,15 @@
       border: 1px solid rgba(56, 189, 248, 0.24);
     }
 
-    .project-card h3 { margin: 0 0 5px; font-size: 1.35rem; }
-    .project-card p { color: var(--muted); margin: 0 0 14px; }
+    .project-card h3 {
+      margin: 0 0 5px;
+      font-size: 1.35rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
 
     .tag-row {
       display: flex;
@@ -372,7 +436,10 @@
       padding-left: 18px;
       color: var(--muted);
     }
-    .feature-list li { margin: 6px 0; }
+
+    .feature-list li {
+      margin: 6px 0;
+    }
 
     .project-links {
       display: flex;
@@ -393,7 +460,11 @@
       font-weight: 900;
       font-size: 0.86rem;
     }
-    .small-btn:hover { text-decoration: none; background: rgba(56, 189, 248, 0.10); }
+
+    .small-btn:hover {
+      text-decoration: none;
+      background: rgba(56, 189, 248, 0.10);
+    }
 
     .pattern-panel {
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 34, 55, 0.78));
@@ -432,9 +503,21 @@
       z-index: 3;
     }
 
-    .pattern-step b { display: block; margin-top: 8px; }
-    .pattern-step span { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
-    .pattern-emoji { font-size: 1.7rem; }
+    .pattern-step b {
+      display: block;
+      margin-top: 8px;
+    }
+
+    .pattern-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    .pattern-emoji {
+      font-size: 1.7rem;
+    }
 
     .skills-grid {
       display: grid;
@@ -450,8 +533,15 @@
       padding: 24px;
     }
 
-    .panel h3 { margin: 0 0 12px; font-size: 1.25rem; }
-    .panel p, .panel li { color: var(--muted); }
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
 
     .skill-cloud {
       display: flex;
@@ -561,10 +651,17 @@
     }
 
     @media (max-width: 980px) {
+
       .hero,
       .portfolio-grid,
-      .skills-grid { grid-template-columns: 1fr; }
-      .pattern-grid { grid-template-columns: 1fr; }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pattern-grid {
+        grid-template-columns: 1fr;
+      }
+
       .pattern-step:not(:last-child)::after {
         content: "↓";
         right: auto;
@@ -573,15 +670,36 @@
         bottom: -22px;
         transform: translateX(-50%);
       }
-      .command-row { grid-template-columns: 54px 1fr; }
-      .command-row .status-pill { grid-column: 2; width: fit-content; }
-      .mini-metrics { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-      .footer-grid { grid-template-columns: 1fr; }
+
+      .command-row {
+        grid-template-columns: 54px 1fr;
+      }
+
+      .command-row .status-pill {
+        grid-column: 2;
+        width: fit-content;
+      }
+
+      .mini-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
@@ -603,17 +721,20 @@
         <div class="eyebrow">🚀 AI operations portfolio · healthcare + workforce intelligence</div>
         <h1><span class="gradient-text">Decision-support systems</span> for messy real-world operations.</h1>
         <p>
-          A portfolio of AI command-center prototypes spanning emergency triage, nurse staffing, medical supply forecasting,
+          A portfolio of AI command-center prototypes spanning emergency triage, nurse staffing, medical supply
+          forecasting,
           and warehouse labor planning. Each project combines machine learning, deterministic safety rules, agentic AI,
           human approval, queue/flow logic, and audit-friendly decision trails.
         </p>
         <div class="cta-row">
           <a class="btn primary" href="#projects">Explore Projects</a>
-          <a class="btn success" href="https://github.com/draculess99" target="_blank" rel="noopener">GitHub Portfolio</a>
+          <a class="btn success" href="https://github.com/draculess99" target="_blank" rel="noopener">GitHub
+            Portfolio</a>
           <a class="btn" href="https://www.linkedin.com/in/gammaconsult/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="notice">
-          <strong>Portfolio theme:</strong> forecasting + safety guardrails + agents + human-in-the-loop workflow. These are educational
+          <strong>Portfolio theme:</strong> forecasting + safety guardrails + agents + human-in-the-loop workflow. These
+          are educational
           prototypes, not production medical devices or operational control systems.
         </div>
       </div>
@@ -698,8 +819,10 @@
             </ul>
           </div>
           <div class="project-links">
-            <a class="small-btn" href="https://draculess99.github.io/Triage-Assist-AI/" target="_blank" rel="noopener">Landing Page</a>
-            <a class="small-btn" href="https://github.com/draculess99/Triage-Assist-AI" target="_blank" rel="noopener">GitHub</a>
+            <a class="small-btn" href="https://draculess99.github.io/Triage-Assist-AI/" target="_blank"
+              rel="noopener">Landing Page</a>
+            <a class="small-btn" href="https://github.com/draculess99/Triage-Assist-AI" target="_blank"
+              rel="noopener">GitHub</a>
           </div>
         </article>
 
@@ -726,8 +849,10 @@
             </ul>
           </div>
           <div class="project-links">
-            <a class="small-btn" href="https://draculess99.github.io/SafeStaff-LIinkedIn-DEMO/" target="_blank" rel="noopener">Landing Page</a>
-            <a class="small-btn" href="https://github.com/draculess99/SafeStaff-LIinkedIn-DEMO" target="_blank" rel="noopener">GitHub</a>
+            <a class="small-btn" href="https://draculess99.github.io/SafeStaff-LIinkedIn-DEMO/" target="_blank"
+              rel="noopener">Landing Page</a>
+            <a class="small-btn" href="https://github.com/draculess99/SafeStaff-LIinkedIn-DEMO" target="_blank"
+              rel="noopener">GitHub</a>
           </div>
         </article>
 
@@ -754,8 +879,10 @@
             </ul>
           </div>
           <div class="project-links">
-            <a class="small-btn" href="https://draculess99.github.io/MedPack_AI/" target="_blank" rel="noopener">Landing Page</a>
-            <a class="small-btn" href="https://github.com/draculess99/MEDPACK_AI/" target="_blank" rel="noopener">GitHub</a>
+            <a class="small-btn" href="https://draculess99.github.io/MEDPACK_AI/" target="_blank" rel="noopener">Landing
+              Page</a>
+            <a class="small-btn" href="https://github.com/draculess99/MEDPACK_AI/" target="_blank"
+              rel="noopener">GitHub</a>
           </div>
         </article>
 
@@ -782,8 +909,10 @@
             </ul>
           </div>
           <div class="project-links">
-            <a class="small-btn" href="https://draculess99.github.io/VET-VTO-Forecasting/" target="_blank" rel="noopener">Landing Page</a>
-            <a class="small-btn" href="https://github.com/draculess99/VET-VTO-Forecasting" target="_blank" rel="noopener">GitHub</a>
+            <a class="small-btn" href="https://draculess99.github.io/VET-VTO-Forecasting/" target="_blank"
+              rel="noopener">Landing Page</a>
+            <a class="small-btn" href="https://github.com/draculess99/VET-VTO-Forecasting" target="_blank"
+              rel="noopener">GitHub</a>
           </div>
         </article>
       </div>
@@ -793,17 +922,33 @@
       <div class="section-title">
         <h2>The common system pattern</h2>
         <p>
-          These projects are not random demos. They follow the same architecture: use data to forecast pressure, apply rules to prevent unsafe recommendations,
+          These projects are not random demos. They follow the same architecture: use data to forecast pressure, apply
+          rules to prevent unsafe recommendations,
           let agents explain/co-ordinate, and keep the human decision-maker in control.
         </p>
       </div>
       <div class="pattern-panel">
         <div class="pattern-grid">
-          <div class="pattern-step"><div class="pattern-emoji">📥</div><b>Operational input</b><span>Patient, staffing, supply, or workload signals</span></div>
-          <div class="pattern-step"><div class="pattern-emoji">📈</div><b>ML prediction</b><span>XGBoost / forecasting model estimates pressure</span></div>
-          <div class="pattern-step"><div class="pattern-emoji">🛡️</div><b>Rules + guardrails</b><span>Safety, escalation, and business constraints</span></div>
-          <div class="pattern-step"><div class="pattern-emoji">🤖</div><b>Command agents</b><span>Explain, coordinate, document, and audit</span></div>
-          <div class="pattern-step"><div class="pattern-emoji">👤</div><b>Human approval</b><span>Nurse, manager, or operator confirms decision</span></div>
+          <div class="pattern-step">
+            <div class="pattern-emoji">📥</div><b>Operational input</b><span>Patient, staffing, supply, or workload
+              signals</span>
+          </div>
+          <div class="pattern-step">
+            <div class="pattern-emoji">📈</div><b>ML prediction</b><span>XGBoost / forecasting model estimates
+              pressure</span>
+          </div>
+          <div class="pattern-step">
+            <div class="pattern-emoji">🛡️</div><b>Rules + guardrails</b><span>Safety, escalation, and business
+              constraints</span>
+          </div>
+          <div class="pattern-step">
+            <div class="pattern-emoji">🤖</div><b>Command agents</b><span>Explain, coordinate, document, and
+              audit</span>
+          </div>
+          <div class="pattern-step">
+            <div class="pattern-emoji">👤</div><b>Human approval</b><span>Nurse, manager, or operator confirms
+              decision</span>
+          </div>
         </div>
       </div>
     </section>
@@ -812,7 +957,8 @@
       <div class="section-title container">
         <h2>Portfolio architecture</h2>
         <p>
-          The same blueprint can power healthcare and workforce applications: a model predicts pressure, deterministic logic enforces safety, agents explain the recommendation,
+          The same blueprint can power healthcare and workforce applications: a model predicts pressure, deterministic
+          logic enforces safety, agents explain the recommendation,
           and the final decision is recorded.
         </p>
       </div>
@@ -898,7 +1044,8 @@ flowchart TB
       <div class="section-title">
         <h2>What this portfolio demonstrates</h2>
         <p>
-          The point is not just building dashboards. It is showing end-to-end decision-support thinking: data, model, workflow,
+          The point is not just building dashboards. It is showing end-to-end decision-support thinking: data, model,
+          workflow,
           safety, agents, deployment, and professional presentation.
         </p>
       </div>
@@ -906,7 +1053,8 @@ flowchart TB
         <div class="panel">
           <h3>Career positioning</h3>
           <p>
-            Built for roles around data science, ML engineering, operations analytics, healthcare AI, workforce optimization,
+            Built for roles around data science, ML engineering, operations analytics, healthcare AI, workforce
+            optimization,
             and AI product prototyping.
           </p>
           <ul>
@@ -944,13 +1092,15 @@ flowchart TB
         <div class="section-title" style="margin-bottom: 0;">
           <h2>Built like a control tower, not a toy predictor.</h2>
           <p>
-            Each project moves beyond a raw ML score by adding workflow context: queues, red flags, staffing or resource pressure,
+            Each project moves beyond a raw ML score by adding workflow context: queues, red flags, staffing or resource
+            pressure,
             human override, escalation, and an auditable decision trail.
           </p>
         </div>
         <div class="cta-row">
           <a class="btn primary" href="https://github.com/draculess99" target="_blank" rel="noopener">View GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/gammaconsult/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn" href="https://www.linkedin.com/in/gammaconsult/" target="_blank" rel="noopener">Connect on
+            LinkedIn</a>
         </div>
       </div>
     </section>
@@ -998,4 +1148,5 @@ flowchart TB
     });
   </script>
 </body>
+
 </html>
