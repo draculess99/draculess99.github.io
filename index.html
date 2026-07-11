@@ -706,8 +706,7 @@
       <div class="brand"><span class="brand-badge">⚡</span> Wil Low / Draculess99 | AI Command Centers</div>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#projects">Projects</a>
-        <a href="#pattern">System Pattern</a>
-        <a href="#architecture">Architecture</a>
+        <a href="#decision-ops">Decision Operations</a>
         <a href="#skills">Skills</a>
         <a href="https://github.com/draculess99" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/gammaconsult/" target="_blank" rel="noopener">LinkedIn</a>
@@ -918,125 +917,14 @@
       </div>
     </section>
 
-    <section id="pattern" class="container">
+    <section id="decision-ops" class="container">
       <div class="section-title">
-        <h2>The common system pattern</h2>
+        <h2>Decision-Making Operations</h2>
         <p>
-          These projects are not random demos. They follow the same architecture: use data to forecast pressure, apply
-          rules to prevent unsafe recommendations,
-          let agents explain/co-ordinate, and keep the human decision-maker in control.
+          There is a critical need for robust decision-making systems in complex operational environments like hospitals and warehouses. 
+          I am trying to bridge the two domains together, using advanced technology to support operators in both of these critical areas. 
+          Whether managing emergency room triage, hospital staffing, medical supply chains, or warehouse logistics, the core challenge remains the same: synthesizing messy real-world data to empower human decision-makers.
         </p>
-      </div>
-      <div class="pattern-panel">
-        <div class="pattern-grid">
-          <div class="pattern-step">
-            <div class="pattern-emoji">📥</div><b>Operational input</b><span>Patient, staffing, supply, or workload
-              signals</span>
-          </div>
-          <div class="pattern-step">
-            <div class="pattern-emoji">📈</div><b>ML prediction</b><span>XGBoost / forecasting model estimates
-              pressure</span>
-          </div>
-          <div class="pattern-step">
-            <div class="pattern-emoji">🛡️</div><b>Rules + guardrails</b><span>Safety, escalation, and business
-              constraints</span>
-          </div>
-          <div class="pattern-step">
-            <div class="pattern-emoji">🤖</div><b>Command agents</b><span>Explain, coordinate, document, and
-              audit</span>
-          </div>
-          <div class="pattern-step">
-            <div class="pattern-emoji">👤</div><b>Human approval</b><span>Nurse, manager, or operator confirms
-              decision</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="architecture" class="container-wide">
-      <div class="section-title container">
-        <h2>Portfolio architecture</h2>
-        <p>
-          The same blueprint can power healthcare and workforce applications: a model predicts pressure, deterministic
-          logic enforces safety, agents explain the recommendation,
-          and the final decision is recorded.
-        </p>
-      </div>
-      <div class="architecture-wrap">
-        <div class="mermaid-box">
-          <pre class="mermaid">
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'darkMode': true,
-    'background': '#0f172a',
-    'primaryColor': '#0f2237',
-    'primaryTextColor': '#eaf2ff',
-    'primaryBorderColor': '#38bdf8',
-    'lineColor': '#7dd3fc',
-    'secondaryColor': '#111827',
-    'tertiaryColor': '#0b1220',
-    'clusterBkg': 'rgba(15, 23, 42, 0.35)',
-    'clusterBorder': '#60a5fa',
-    'fontFamily': 'Arial'
-  },
-  'flowchart': {
-    'htmlLabels': true,
-    'useMaxWidth': true,
-    'nodeSpacing': 45,
-    'rankSpacing': 68,
-    'curve': 'basis'
-  }
-}}%%
-flowchart TB
-    A["<div class='m-node'>Project Inputs<br/>Healthcare + Warehouse Signals</div>"]
-    B["<div class='m-node'>Application Layer<br/>Streamlit UI + Flask API</div>"]
-    A --> B
-
-    subgraph L1["Prediction&nbsp;+&nbsp;Guardrail&nbsp;Layer"]
-      direction LR
-      C["<div class='m-node'>ML Forecasting<br/>XGBoost + Features</div>"]
-      D["<div class='m-node'>Deterministic Rules<br/>Safety + Operations Guardrails</div>"]
-    end
-
-    B --> C
-    B --> D
-
-    E["<div class='m-node'>Generated Recommendation<br/>Risk + Rationale + Next Action</div>"]
-    C --> E
-    D --> E
-
-    subgraph L2["Command&nbsp;Agent&nbsp;Layer"]
-      direction LR
-      F1["<div class='m-node'>Safety Sentinel<br/>Risk Review</div>"]
-      F2["<div class='m-node'>Flow Coordinator<br/>Queue Priority</div>"]
-      F3["<div class='m-node'>Documentation Agent<br/>SBAR + Audit Summary</div>"]
-    end
-
-    E --> F1
-    E --> F2
-    E --> F3
-
-    G["<div class='m-node'>Human Decision<br/>Nurse / Manager / Operator</div>"]
-
-    F1 --> G
-    F2 --> G
-    F3 --> G
-
-    subgraph L3["Workflow&nbsp;Output&nbsp;Layer"]
-      direction LR
-      H["<div class='m-node'>Audit Trail<br/>Decision History</div>"]
-      I["<div class='m-node'>Queue / Board<br/>Workflow Control</div>"]
-      J["<div class='m-node'>Portfolio Output<br/>Actionable AI Demo</div>"]
-    end
-
-    G --> H
-    G --> I
-    I --> J
-
-    classDef default fill:#0f2237,stroke:#38bdf8,stroke-width:1.6px,color:#eaf2ff,rx:14,ry:14;
-          </pre>
-        </div>
       </div>
     </section>
 
@@ -1119,34 +1007,7 @@ flowchart TB
     </div>
   </footer>
 
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      securityLevel: 'loose',
-      flowchart: {
-        htmlLabels: true,
-        useMaxWidth: true,
-        nodeSpacing: 45,
-        rankSpacing: 68,
-        curve: 'basis'
-      },
-      themeVariables: {
-        darkMode: true,
-        background: '#0f172a',
-        primaryColor: '#0f2237',
-        primaryTextColor: '#eaf2ff',
-        primaryBorderColor: '#38bdf8',
-        lineColor: '#7dd3fc',
-        secondaryColor: '#111827',
-        tertiaryColor: '#0b1220',
-        clusterBkg: 'rgba(15, 23, 42, 0.35)',
-        clusterBorder: '#60a5fa',
-        fontFamily: 'Arial'
-      }
-    });
-  </script>
+
 </body>
 
 </html>
