@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wil Low / Draculess99 | AI Command Center Portfolio</title>
+    <meta
+      name="description"
+      content="Wil Low / Draculess99's AI portfolio: healthcare triage, staffing control towers, hospital supply forecasting, and warehouse workforce forecasting using Python, Streamlit, Flask, XGBoost, agentic AI, Groq, Gemini, and human-in-the-loop decision support."
+    />
+    <style>
+      :root {
+        --bg: #121212;
+        --bg2: #1e1e1e;
+        --panel: rgba(30, 30, 30, 0.86);
+        --panel2: rgba(45, 45, 45, 0.78);
+        --card: rgba(30, 30, 30, 0.82);
+        --card2: rgba(25, 25, 25, 0.94);
+        --text: #e5e5e5;
+        --muted: #a3a3a3;
+        --blue: #888888;
+        --cyan: #aaaaaa;
+        --green: #888888;
+        --yellow: #bbbbbb;
+        --orange: #999999;
+        --red: #dddddd;
+        --purple: #999999;
+        --pink: #bbbbbb;
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 16% 10%,
+            rgba(120, 120, 120, 0.16),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 82% 4%,
+            rgba(150, 150, 150, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(180deg, var(--bg), #000000 78%);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        width: min(1160px, 92%);
+        margin: 0 auto;
+      }
+
+      .container-wide {
+        width: min(1420px, 96%);
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(16px);
+        background: rgba(18, 18, 18, 0.78);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 16px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+      }
+
+      .brand-badge {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #444, #888);
+        box-shadow: 0 14px 32px rgba(100, 100, 100, 0.26);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 0.94rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .hero {
+        min-height: 86vh;
+        display: grid;
+        grid-template-columns: 1.03fr 0.97fr;
+        gap: 44px;
+        align-items: center;
+        padding: 76px 0 54px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 12px;
+        border: 1px solid rgba(150, 150, 150, 0.34);
+        border-radius: 999px;
+        background: rgba(150, 150, 150, 0.09);
+        color: #cccccc;
+        font-weight: 800;
+        font-size: 0.88rem;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0 0 24px;
+        font-size: clamp(2.8rem, 6.5vw, 6.1rem);
+        line-height: 0.92;
+        letter-spacing: -0.075em;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #ffffff, #aaaaaa, #dddddd);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 720px;
+        color: var(--muted);
+        font-size: 1.13rem;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 14px;
+        padding: 13px 18px;
+        color: var(--text);
+        border: 1px solid var(--border);
+        background: rgba(40, 40, 40, 0.82);
+        font-weight: 900;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+      }
+
+      .btn:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, #555, #333);
+        border-color: transparent;
+        color: white;
+      }
+
+      .btn.success {
+        background: linear-gradient(135deg, #666, #444);
+        border-color: transparent;
+        color: white;
+      }
+
+      .hero-console {
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          rgba(30, 30, 30, 0.94),
+          rgba(20, 20, 20, 0.9)
+        );
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero-console::before {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: rgba(120, 120, 120, 0.15);
+        top: -100px;
+        right: -100px;
+        filter: blur(6px);
+      }
+
+      .console-top {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.82rem;
+        margin-bottom: 20px;
+      }
+
+      .dots span {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        margin-right: 6px;
+        background: #64748b;
+      }
+
+      .dots span:nth-child(2) {
+        background: #888;
+      }
+
+      .dots span:nth-child(3) {
+        background: #aaa;
+      }
+
+      .command-card {
+        position: relative;
+        border: 1px solid rgba(120, 120, 120, 0.25);
+        background: rgba(25, 25, 25, 0.48);
+        border-radius: 20px;
+        padding: 18px;
+        margin-bottom: 16px;
+      }
+
+      .command-row {
+        display: grid;
+        grid-template-columns: 68px 1fr auto;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .command-row:last-child {
+        border-bottom: none;
+      }
+
+      .project-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        font-size: 1.6rem;
+        background: rgba(120, 120, 120, 0.11);
+        border: 1px solid rgba(120, 120, 120, 0.25);
+      }
+
+      .command-row h3 {
+        margin: 0 0 2px;
+        font-size: 1rem;
+      }
+
+      .command-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .status-pill {
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 900;
+        border: 1px solid var(--border);
+        white-space: nowrap;
+      }
+
+      .health,
+      .ops,
+      .cross {
+        color: #e5e5e5;
+        background: rgba(150, 150, 150, 0.1);
+        border-color: rgba(150, 150, 150, 0.28);
+      }
+
+      .mini-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .mini-metric {
+        background: rgba(35, 35, 35, 0.68);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 14px;
+        text-align: center;
+      }
+
+      .mini-metric strong {
+        display: block;
+        font-size: 1.4rem;
+        line-height: 1.1;
+      }
+
+      .mini-metric span {
+        color: var(--muted);
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .section-title {
+        margin-bottom: 28px;
+      }
+
+      .section-title h2 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4.4vw, 3.4rem);
+        line-height: 1;
+        letter-spacing: -0.055em;
+      }
+
+      .section-title p {
+        margin: 0;
+        max-width: 860px;
+        color: var(--muted);
+        font-size: 1.06rem;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-card {
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          rgba(30, 30, 30, 0.84),
+          rgba(20, 20, 20, 0.78)
+        );
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        min-height: 390px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 5px;
+        background: linear-gradient(90deg, #888, #555);
+      }
+
+      .project-head {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .project-logo {
+        flex: 0 0 auto;
+        width: 58px;
+        height: 58px;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        font-size: 1.7rem;
+        background: rgba(120, 120, 120, 0.11);
+        border: 1px solid rgba(120, 120, 120, 0.24);
+      }
+
+      .project-card h3 {
+        margin: 0 0 5px;
+        font-size: 1.35rem;
+      }
+
+      .project-card p {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 14px 0 18px;
+      }
+
+      .tag {
+        border: 1px solid var(--border);
+        background: rgba(25, 25, 25, 0.34);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        color: #b3b3b3;
+      }
+
+      .feature-list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .feature-list li {
+        margin: 6px 0;
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .small-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 12px;
+        border-radius: 12px;
+        background: rgba(30, 30, 30, 0.42);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-weight: 900;
+        font-size: 0.86rem;
+      }
+
+      .small-btn:hover {
+        text-decoration: none;
+        background: rgba(120, 120, 120, 0.1);
+      }
+
+      .pattern-panel {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.92),
+          rgba(15, 34, 55, 0.78)
+        );
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 26px;
+        box-shadow: var(--shadow);
+      }
+
+      .pattern-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        align-items: stretch;
+        margin-top: 20px;
+      }
+
+      .pattern-step {
+        background: rgba(2, 6, 23, 0.36);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 14px;
+        text-align: center;
+        position: relative;
+      }
+
+      .pattern-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #aaa;
+        font-weight: 900;
+        font-size: 1.3rem;
+        z-index: 3;
+      }
+
+      .pattern-step b {
+        display: block;
+        margin-top: 8px;
+      }
+
+      .pattern-step span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 4px;
+      }
+
+      .pattern-emoji {
+        font-size: 1.7rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .panel {
+        background: rgba(30, 30, 30, 0.72);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 24px;
+      }
+
+      .panel h3 {
+        margin: 0 0 12px;
+        font-size: 1.25rem;
+      }
+
+      .panel p,
+      .panel li {
+        color: var(--muted);
+      }
+
+      .skill-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .skill {
+        padding: 9px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(25, 25, 25, 0.38);
+        color: #e5e5e5;
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+
+      .architecture-wrap {
+        background: rgba(30, 30, 30, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 22px;
+        overflow: hidden;
+      }
+
+      .mermaid-box {
+        overflow-x: auto;
+        width: 100%;
+        padding: 28px 0;
+        text-align: center;
+      }
+
+      .mermaid-box svg {
+        max-width: 1150px !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .mermaid-box .nodeLabel,
+      .mermaid-box foreignObject div,
+      .mermaid-box .label {
+        text-align: center !important;
+        line-height: 1.18 !important;
+        white-space: normal !important;
+      }
+
+      .mermaid-box .cluster rect {
+        fill: rgba(15, 23, 42, 0.35) !important;
+        stroke: rgba(96, 165, 250, 0.35) !important;
+        stroke-width: 1px !important;
+        rx: 14px !important;
+      }
+
+      .mermaid-box .cluster-label {
+        color: #bfdbfe !important;
+        font-weight: 800 !important;
+        font-size: 0.95em !important;
+      }
+
+      .mermaid-box .edgePath path {
+        stroke: #aaa !important;
+        stroke-width: 2px !important;
+      }
+
+      .mermaid-box .arrowheadPath {
+        fill: #aaa !important;
+      }
+
+      .m-node {
+        min-width: 142px;
+        max-width: 175px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+        padding: 6px 10px;
+        font-weight: 800;
+        color: #eaf2ff;
+      }
+
+      .notice {
+        margin-top: 22px;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid rgba(250, 204, 21, 0.28);
+        background: rgba(250, 204, 21, 0.08);
+        color: #fef9c3;
+      }
+
+      footer {
+        margin-top: 42px;
+        padding: 42px 0 64px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 18px;
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .portfolio-grid,
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pattern-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pattern-step:not(:last-child)::after {
+          content: "↓";
+          right: auto;
+          top: auto;
+          left: 50%;
+          bottom: -22px;
+          transform: translateX(-50%);
+        }
+
+        .command-row {
+          grid-template-columns: 54px 1fr;
+        }
+
+        .command-row .status-pill {
+          grid-column: 2;
+          width: fit-content;
+        }
+
+        .mini-metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          justify-content: flex-start;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <span class="brand-badge">⚡</span> Wil Low / Draculess99 | AI Command
+          Centers
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#projects">Projects</a>
+          <a href="#decision-ops">Decision Operations</a>
+          <a href="#skills">Skills</a>
+          <a
+            href="https://github.com/draculess99"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/gammaconsult/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div>
+          <div class="eyebrow">
+            🚀 AI operations portfolio · healthcare + workforce intelligence
+          </div>
+          <h1>
+            <span class="gradient-text">Decision-support systems</span> for
+            messy real-world operations.
+          </h1>
+          <p>
+            A portfolio of AI command-center prototypes spanning emergency
+            triage, nurse staffing, medical supply forecasting, and warehouse
+            labor planning. Each project combines machine learning,
+            deterministic safety rules, agentic AI, human approval, queue/flow
+            logic, and audit-friendly decision trails.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">Explore Projects</a>
+            <a
+              class="btn success"
+              href="https://github.com/draculess99"
+              target="_blank"
+              rel="noopener"
+              >GitHub Portfolio</a
+            >
+            <a
+              class="btn"
+              href="https://www.linkedin.com/in/gammaconsult/"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+          <div class="notice">
+            <strong>Portfolio theme:</strong> forecasting + safety guardrails +
+            agents + human-in-the-loop workflow. These are educational
+            prototypes, not production medical devices or operational control
+            systems.
+          </div>
+        </div>
+
+        <aside class="hero-console" aria-label="Portfolio command console">
+          <div class="console-top">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <div>AI Command Center Portfolio</div>
+          </div>
+          <div class="command-card">
+            <div class="command-row">
+              <div class="project-icon">🚑</div>
+              <div>
+                <h3>Triage Assist AI</h3>
+                <p>
+                  Emergency Department triage queue, ESI acuity, nurse override,
+                  reassessment.
+                </p>
+              </div>
+              <span class="status-pill health">Healthcare</span>
+            </div>
+            <div class="command-row">
+              <div class="project-icon">👩‍⚕️</div>
+              <div>
+                <h3>SafeStaff AI</h3>
+                <p>
+                  ER wait-time forecasting and nurse staffing escalation control
+                  tower.
+                </p>
+              </div>
+              <span class="status-pill cross">Healthcare + workforce</span>
+            </div>
+            <div class="command-row">
+              <div class="project-icon">💊</div>
+              <div>
+                <h3>MedPack AI</h3>
+                <p>
+                  Hospital supply demand forecasting, stockout risk, committee
+                  recommendations.
+                </p>
+              </div>
+              <span class="status-pill health">Healthcare</span>
+            </div>
+            <div class="command-row">
+              <div class="project-icon">📦</div>
+              <div>
+                <h3>VET/VTO Forecasting</h3>
+                <p>
+                  Warehouse workload forecasting and labor action
+                  recommendations.
+                </p>
+              </div>
+              <span class="status-pill ops">Warehouse ops</span>
+            </div>
+          </div>
+          <div class="mini-metrics">
+            <div class="mini-metric">
+              <strong>4</strong><span>Landing pages</span>
+            </div>
+            <div class="mini-metric">
+              <strong>3</strong><span>Healthcare projects</span>
+            </div>
+            <div class="mini-metric">
+              <strong>1</strong><span>Warehouse AI project</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" class="container-wide">
+        <div class="section-title container">
+          <h2>Featured projects</h2>
+          <p>
+            Four focused applications, one consistent design language: predict
+            operational pressure, detect safety risks, recommend next actions,
+            preserve human control, and record the decision trail.
+          </p>
+        </div>
+
+        <div class="portfolio-grid container-wide">
+          <article class="project-card">
+            <div>
+              <div class="project-head">
+                <div class="project-logo">🚑</div>
+                <div>
+                  <h3>Triage Assist AI</h3>
+                  <p>Emergency Department triage command-center prototype.</p>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">ESI-style acuity</span>
+                <span class="tag">Live queue</span>
+                <span class="tag">Nurse override</span>
+                <span class="tag">Reassessment</span>
+                <span class="tag">Audit trail</span>
+              </div>
+              <ul class="feature-list">
+                <li>
+                  Ranks patients by acuity, red flags, breach timing, and
+                  reassessment status.
+                </li>
+                <li>
+                  Separates AI recommended ESI from nurse-final ESI for safer
+                  auditability.
+                </li>
+                <li>
+                  Uses visible command agents: Safety Sentinel, Flow
+                  Coordinator, Documentation Agent.
+                </li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a
+                class="small-btn"
+                href="https://draculess99.github.io/Triage-Assist-AI/"
+                target="_blank"
+                rel="noopener"
+                >Landing Page</a
+              >
+              <a
+                class="small-btn"
+                href="https://github.com/draculess99/Triage-Assist-AI"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-head">
+                <div class="project-logo">👩‍⚕️</div>
+                <div>
+                  <h3>SafeStaff AI</h3>
+                  <p>ER wait-time and nurse staffing control tower.</p>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Wait-time forecasting</span>
+                <span class="tag">Staffing planner</span>
+                <span class="tag">Safety guard</span>
+                <span class="tag">Human approval</span>
+                <span class="tag">Agents</span>
+              </div>
+              <ul class="feature-list">
+                <li>
+                  Forecasts ER pressure and recommends staffing adjustment
+                  actions.
+                </li>
+                <li>
+                  Escalates when nurse supply is insufficient instead of falsely
+                  approving unsafe staffing.
+                </li>
+                <li>
+                  Combines ML, operational rules, cost logic, compliance, and
+                  human decision control.
+                </li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a
+                class="small-btn"
+                href="https://draculess99.github.io/SafeStaff-LIinkedIn-DEMO/"
+                target="_blank"
+                rel="noopener"
+                >Landing Page</a
+              >
+              <a
+                class="small-btn"
+                href="https://github.com/draculess99/SafeStaff-LIinkedIn-DEMO"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-head">
+                <div class="project-logo">💊</div>
+                <div>
+                  <h3>MedPack AI</h3>
+                  <p>
+                    Hospital supply forecasting and medical inventory committee.
+                  </p>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Supply demand</span>
+                <span class="tag">Stockout risk</span>
+                <span class="tag">Committee agents</span>
+                <span class="tag">What-if simulator</span>
+                <span class="tag">RAG docs</span>
+              </div>
+              <ul class="feature-list">
+                <li>
+                  Forecasts next-period usage for critical hospital supplies by
+                  department.
+                </li>
+                <li>
+                  Runs committee-style decision support for reorder, shortage,
+                  and escalation recommendations.
+                </li>
+                <li>
+                  Includes operational pressure signals and what-if scenario
+                  thinking for supply risk.
+                </li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a
+                class="small-btn"
+                href="https://draculess99.github.io/MEDPACK_AI/"
+                target="_blank"
+                rel="noopener"
+                >Landing Page</a
+              >
+              <a
+                class="small-btn"
+                href="https://github.com/draculess99/MEDPACK_AI/"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-head">
+                <div class="project-logo">📦</div>
+                <div>
+                  <h3>VET/VTO Workforce Forecasting</h3>
+                  <p>
+                    Warehouse workload forecasting and labor action
+                    recommendation system.
+                  </p>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">XGBoost</span>
+                <span class="tag">Demand forecast</span>
+                <span class="tag">VET/VTO</span>
+                <span class="tag">Cost impact</span>
+                <span class="tag">Agentic explanation</span>
+              </div>
+              <ul class="feature-list">
+                <li>
+                  Forecasts workload pressure and recommends labor actions using
+                  historical demand signals.
+                </li>
+                <li>
+                  Connects forecasting with operational cost, overtime thinking,
+                  and decision thresholds.
+                </li>
+                <li>
+                  Shows the bridge between warehouse operations, ML forecasting,
+                  and agentic decision support.
+                </li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a
+                class="small-btn"
+                href="https://draculess99.github.io/VET-VTO-Forecasting/"
+                target="_blank"
+                rel="noopener"
+                >Landing Page</a
+              >
+              <a
+                class="small-btn"
+                href="https://github.com/draculess99/VET-VTO-Forecasting"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="decision-ops" class="container">
+        <div class="section-title">
+          <h2>Decision-Making Operations</h2>
+          <p>
+            There is a critical need for robust decision-making systems in
+            complex operational environments like hospitals and warehouses. I am
+            trying to bridge the two domains together, using advanced technology
+            to support operators in both of these critical areas. Whether
+            managing emergency room triage, hospital staffing, medical supply
+            chains, or warehouse logistics, the core challenge remains the same:
+            synthesizing messy real-world data to empower human decision-makers.
+          </p>
+        </div>
+        <div class="architecture-wrap" style="margin-top: 30px">
+          <div class="mermaid-box">
+            <pre class="mermaid">
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'darkMode': true,
+    'background': 'transparent',
+    'primaryColor': '#1e1e1e',
+    'primaryTextColor': '#eaf2ff',
+    'primaryBorderColor': '#888',
+    'lineColor': '#aaa',
+    'secondaryColor': '#111827',
+    'tertiaryColor': '#151515',
+    'clusterBkg': 'rgba(15, 23, 42, 0.35)',
+    'clusterBorder': '#999',
+    'fontFamily': 'Arial'
+  },
+  'flowchart': {
+    'htmlLabels': true,
+    'useMaxWidth': true,
+    'curve': 'basis'
+  }
+}}%%
+flowchart TD
+    A["<div class='m-node'>Operational Environment<br/>(Healthcare / Warehouse)</div>"] --> B["<div class='m-node'>Messy Real-World Data & Signals</div>"]
+    
+    subgraph AI["Decision Support & AI Layer"]
+        direction LR
+        C["<div class='m-node'>AI Agents<br/>(Forecasting, Analysis)</div>"]
+        D["<div class='m-node'>Deterministic Rules<br/>(Safety & Constraints)</div>"]
+        C <--> D
+    end
+    
+    B --> AI
+    
+    subgraph Output["Results & Actions"]
+        direction TB
+        E["<div class='m-node'>Actionable Recommendations</div>"]
+        F["<div class='m-node'>Human Decision-Maker Control</div>"]
+        E --> F
+    end
+    
+    AI --> Output
+
+    classDef default fill:#1e1e1e,stroke:#888,stroke-width:1.6px,color:#eaf2ff,rx:14,ry:14;
+          </pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="container">
+        <div class="section-title">
+          <h2>What this portfolio demonstrates</h2>
+          <p>
+            The point is not just building dashboards. It is showing end-to-end
+            decision-support thinking: data, model, workflow, safety, agents,
+            deployment, and professional presentation.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="panel">
+            <h3>Career positioning</h3>
+            <p>
+              Built for roles around data science, ML engineering, operations
+              analytics, healthcare AI, workforce optimization, and AI product
+              prototyping.
+            </p>
+            <ul>
+              <li>Healthcare AI decision-support prototypes</li>
+              <li>Warehouse and labor forecasting systems</li>
+              <li>Agentic workflow orchestration</li>
+              <li>Human-in-the-loop governance and auditability</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Technical stack</h3>
+            <div class="skill-cloud">
+              <span class="skill">Python</span>
+              <span class="skill">Streamlit</span>
+              <span class="skill">Flask</span>
+              <span class="skill">XGBoost</span>
+              <span class="skill">Pandas</span>
+              <span class="skill">Scikit-learn</span>
+              <span class="skill">Gemini</span>
+              <span class="skill">Groq</span>
+              <span class="skill">Agentic AI</span>
+              <span class="skill">RAG</span>
+              <span class="skill">Audit logging</span>
+              <span class="skill">GitHub Pages</span>
+              <span class="skill">Railway</span>
+              <span class="skill">Healthcare workflow</span>
+              <span class="skill">Operations forecasting</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="pattern-panel">
+          <div class="section-title" style="margin-bottom: 0">
+            <h2>Built like a control tower, not a toy predictor.</h2>
+            <p>
+              Each project moves beyond a raw ML score by adding workflow
+              context: queues, red flags, staffing or resource pressure, human
+              override, escalation, and an auditable decision trail.
+            </p>
+          </div>
+          <div class="cta-row">
+            <a
+              class="btn primary"
+              href="https://github.com/draculess99"
+              target="_blank"
+              rel="noopener"
+              >View GitHub</a
+            >
+            <a
+              class="btn"
+              href="https://www.linkedin.com/in/gammaconsult/"
+              target="_blank"
+              rel="noopener"
+              >Connect on LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>Wil Low / Draculess99 — AI Command Center Portfolio</strong
+          ><br />
+          Healthcare, staffing, supply chain, and warehouse operations
+          decision-support prototypes.
+        </div>
+        <div>
+          <a
+            href="https://github.com/draculess99"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          ·
+          <a
+            href="https://www.linkedin.com/in/gammaconsult/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        securityLevel: "loose",
+      });
+    </script>
+  </body>
+</html>
