@@ -91,28 +91,8 @@
       margin-bottom: 24px;
     }
 
-    .logo-text span:nth-child(1) {
-      color: var(--g-blue);
-    }
-
-    .logo-text span:nth-child(2) {
-      color: var(--g-red);
-    }
-
-    .logo-text span:nth-child(3) {
-      color: var(--g-yellow);
-    }
-
-    .logo-text span:nth-child(4) {
-      color: var(--g-blue);
-    }
-
-    .logo-text span:nth-child(5) {
-      color: var(--g-green);
-    }
-
-    .logo-text span:nth-child(6) {
-      color: var(--g-red);
+    .logo-text span {
+      color: #174ea6; /* Dark blue */
     }
 
     .hero-subtitle {
@@ -122,39 +102,8 @@
       margin: 0 auto 40px;
     }
 
-    /* Search-bar style visual */
-    .search-bar {
-      display: flex;
-      align-items: center;
-      max-width: 580px;
-      margin: 0 auto 40px;
-      padding: 12px 24px;
-      border: 1px solid var(--g-gray-300);
-      border-radius: 24px;
-      box-shadow: var(--elevation-1);
-      transition: box-shadow 0.2s;
-    }
-
-    .search-bar:hover {
-      box-shadow: var(--elevation-2);
-    }
-
-    .search-icon {
-      color: var(--g-gray-700);
-      margin-right: 16px;
-      font-size: 1.2rem;
-    }
-
-    .search-text {
-      color: var(--g-gray-700);
-      font-size: 1rem;
-      flex-grow: 1;
-      text-align: left;
-    }
-
-    .mic-icon {
-      color: var(--g-blue);
-      font-size: 1.2rem;
+    .search-bar, .search-icon, .search-text, .mic-icon {
+      display: none; /* Removed as requested */
     }
 
     /* AI Decision Making Section */
@@ -312,11 +261,6 @@
   <section class="hero">
     <div class="logo-text">
       <span>Intelligent Decision Support Systems for Operations</span>
-    </div>
-    <div class="search-bar">
-      <span class="search-icon">🔍</span>
-      <span class="search-text">Decision support systems for messy real-world operations</span>
-      <span class="mic-icon">🎙️</span>
     </div>
     <p class="hero-subtitle">
       A collection of functional prototypes bridging the gap between raw data and human decision-making in healthcare
