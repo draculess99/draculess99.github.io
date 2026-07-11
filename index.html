@@ -275,9 +275,8 @@
     /* Architecture Diagram Image Section */
     .diagram-section {
       display: flex;
-      flex-direction: row;
-      gap: 30px;
-      align-items: center;
+      flex-direction: column;
+      gap: 20px;
       margin-top: 40px;
       background: rgba(15, 23, 42, 0.5);
       border: 1px solid var(--card-border);
@@ -285,7 +284,22 @@
       padding: 24px;
     }
 
-    .diagram-section img {
+    .diagram-title {
+      color: var(--accent-cyan);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .diagram-content {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .diagram-content img {
       width: 55%;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -295,23 +309,17 @@
     .diagram-text {
       width: 45%;
     }
-    
-    .diagram-text h4 {
-      color: var(--accent-cyan);
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-    
+
     .diagram-text p {
       font-size: 1rem;
       margin-bottom: 16px;
     }
 
     @media (max-width: 800px) {
-      .diagram-section {
+      .diagram-content {
         flex-direction: column;
       }
-      .diagram-section img, .diagram-text {
+      .diagram-content img, .diagram-text {
         width: 100%;
       }
     }
@@ -384,15 +392,17 @@
         </p>
 
         <div class="diagram-section">
-          <img src="architecture.png" alt="Decision & Optimization AI Engine Architecture" />
-          <div class="diagram-text">
-            <h4>The Core AI Engine</h4>
-            <p>
-              By unifying data streams from both clinical demand and warehouse states, the centralized AI engine acts as the operational brain. It evaluates real-time pressures against deterministic rules to output highly optimized resourcing and replenishment actions.
-            </p>
-            <p>
-              A continuous feedback loop ensures that every decision made by the AI or overridden by human operators is logged, tracked, and used to refine future performance.
-            </p>
+          <h4 class="diagram-title">The Core AI Engine</h4>
+          <div class="diagram-content">
+            <img src="architecture.png" alt="Decision & Optimization AI Engine Architecture" />
+            <div class="diagram-text">
+              <p>
+                By unifying data streams from both clinical demand and warehouse states, the centralized AI engine acts as the operational brain. It evaluates real-time pressures against deterministic rules to output highly optimized resourcing and replenishment actions.
+              </p>
+              <p>
+                A continuous feedback loop ensures that every decision made by the AI or overridden by human operators is logged, tracked, and used to refine future performance.
+              </p>
+            </div>
           </div>
         </div>
       </div>
