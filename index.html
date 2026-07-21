@@ -332,6 +332,26 @@
       font-family: 'Product Sans', sans-serif;
     }
 
+    .card-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .card.featured {
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.08);
+    }
+
     .card-desc {
       font-size: 1rem;
       color: var(--text-muted);
@@ -514,7 +534,8 @@
     <div class="grid-container">
 
       <!-- Project 1: VET/VTO Forecasting -->
-      <div class="card">
+      <div class="card featured">
+        <div class="card-badge">Flagship</div>
         <div class="card-icon">📦</div>
         <h3 class="card-title">VET/VTO Forecasting</h3>
         <p class="card-desc">
