@@ -339,7 +339,7 @@
       flex-grow: 1;
     }
 
-    .card-metric {
+    .project-proof {
       background: rgba(56, 189, 248, 0.05);
       border: 1px solid var(--card-border);
       border-radius: 8px;
@@ -347,7 +347,7 @@
       margin-bottom: 20px;
     }
 
-    .card-metric-highlight {
+    .proof-main {
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--accent-cyan);
@@ -355,17 +355,24 @@
       font-family: 'Product Sans', sans-serif;
     }
 
-    .card-metric-desc {
+    .proof-sub {
       font-size: 0.9rem;
       color: var(--text-main);
       line-height: 1.3;
       margin-bottom: 4px;
     }
 
-    .card-metric-note {
+    .proof-note {
       font-size: 0.8rem;
       color: var(--text-muted);
       font-style: italic;
+    }
+
+    .project-impact {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      flex-grow: 1;
     }
 
     .card-links {
@@ -511,15 +518,14 @@
       <div class="card">
         <div class="card-icon">📦</div>
         <h3 class="card-title">VET/VTO Forecasting</h3>
-        <p class="card-desc">
-          Warehouse labor action recommendation system. Forecasts workload pressure to suggest voluntary extra time or
-          time off, bridging operational logic and cost impact.
-        </p>
-        <div class="card-metric" aria-label="Backtested model result">
-          <div class="card-metric-highlight">53.1% lower forecasting RMSE</div>
-          <div class="card-metric-desc">XGBoost vs. seasonal-naive baseline</div>
-          <div class="card-metric-note">Historical backtesting</div>
+        <div class="project-proof" aria-label="Backtested model result">
+          <div class="proof-main">53.1% lower forecasting RMSE</div>
+          <div class="proof-sub">XGBoost vs. seasonal-naive baseline</div>
+          <div class="proof-note">Historical backtesting · selected final model</div>
         </div>
+        <p class="project-impact">
+          Converts 12-week demand forecasts into VET, VTO, or normal-staffing recommendations with cost-impact modeling.
+        </p>
         <div class="card-links">
           <a href="https://draculess99.github.io/VET-VTO-Forecasting/" target="_blank" class="btn btn-primary">Demo</a>
           <a href="https://github.com/draculess99/VET-VTO-Forecasting" target="_blank" class="btn btn-outline">Code</a>
