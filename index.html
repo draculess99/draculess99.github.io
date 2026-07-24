@@ -539,12 +539,12 @@
         <div class="card-icon">📦</div>
         <h3 class="card-title">VET/VTO Workforce Intelligence</h3>
         <p class="card-desc">
-          Warehouse labor action recommendation system. Forecasts 12-week warehouse demand and recommends voluntary extra time (VET), voluntary time off (VTO), or normal staffing.
+          Machine-learning workforce demand forecasting system that predicts staffing requirements and converts forecasts into VET and VTO operational recommendations.
         </p>
         <div class="project-proof" aria-label="Backtested model result">
-          <div class="proof-main">53.1% lower forecasting RMSE</div>
-          <div class="proof-sub">XGBoost vs. seasonal-naive baseline</div>
-          <div class="proof-note">Historical backtesting · selected final model</div>
+          <div class="proof-main">53% lower RMSE vs. seasonal-naive baseline</div>
+          <div class="proof-sub">78.2% simulated cost reduction in historical backtesting</div>
+          <div class="proof-note">Model-estimated savings, not realized production savings</div>
         </div>
         <p class="project-impact">
           Cost-impact modeling &middot; Explainable recommendations
@@ -557,16 +557,15 @@
 
       <!-- Project 4: SafeStaff AI -->
       <div class="card">
-        <img src="https://img.shields.io/badge/Google_%26_Kaggle-Hackathon_Capstone-4285F4?style=flat&logo=google&logoColor=white" alt="Google Kaggle Hackathon Capstone" style="position: absolute; top: 24px; right: 24px; border-radius: 4px;" />
+        <img src="https://img.shields.io/badge/Google%2FKaggle-ADK_Capstone-4285F4?style=flat&logo=google&logoColor=white" alt="Google/Kaggle ADK Capstone" style="position: absolute; top: 24px; right: 24px; border-radius: 4px;" />
         <div class="card-icon">👩‍⚕️</div>
         <h3 class="card-title">SafeStaff AI</h3>
         <p class="card-desc">
-          ER wait-time and nurse staffing control tower. Forecasts pressure and recommends staffing adjustments while
-          enforcing compliance constraints.
+          Human-governed emergency-department decision-support system combining wait-time forecasting, staffing recommendations, safety rules and multi-agent review.
         </p>
         <div class="project-proof" aria-label="Generated model result">
-          <div class="proof-main">61.6% lower wait-time RMSE</div>
-          <div class="proof-sub">88.3% High/Critical Recall &middot; R&sup2; 0.853</div>
+          <div class="proof-main">R&sup2; 0.853 &middot; RMSE 26.18 min</div>
+          <div class="proof-sub">Baseline RMSE: 68.21 min</div>
           <div class="proof-note">XGBoost vs. baseline &middot; 1,000-case holdout</div>
         </div>
         <p class="project-impact">
