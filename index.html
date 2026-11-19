@@ -965,7 +965,7 @@
           <img src="https://img.shields.io/badge/lablab.ai-AI_Infra_Summit_Hackathon-7C3AED?style=flat"
             alt="lablab.ai · AI Infra Summit Hackathon" style="border-radius: 4px;" />
         </a>
-        <div class="card-icon">📦</div>
+        <div class="card-icon">💊</div>
         <h3 class="card-title">MedPack AI</h3>
         <p class="card-desc">
           A Human-Governed Medication Supply Risk Copilot that bridges the gap between historical inventory data and
@@ -1125,17 +1125,104 @@
         </div>
       </div>
 
-      <!-- Project 8: AuthGuard-AI -->
+      <!-- Project 8: AuthGuard PayPal -->
       <div class="card">
-        <div class="card-icon">🛡️</div>
-        <h3 class="card-title">AuthGuard-AI</h3>
+        <a href="https://devpost.com/software/clearpay-agent" target="_blank" rel="noopener noreferrer"
+          style="position: absolute; top: 24px; right: 24px; z-index: 10;">
+          <img src="https://img.shields.io/badge/DEVPOST-PayPal_AI_Hackathon-7C3AED?style=flat"
+            alt="DEVPOST · PayPal AI Hackathon" style="border-radius: 4px;" />
+        </a>
+
+        <div class="card-icon">💳</div>
+        <h3 class="card-title">AuthGuard PayPal</h3>
         <p class="card-desc">
-          A human-governed, multi-agent prior-authorization decision-support command center. Evaluates risk, policy, and
-          compliance with a debate-based reasoning system.
+          A human-governed AI workflow for reviewing authorization evidence, locking
+          routes with deterministic guardrails, and demonstrating explicit
+          human-approved PayPal Sandbox payments.
         </p>
-        <div class="card-links">
-          <a href="https://draculess99.github.io/AuthGuard-AI/" target="_blank" class="btn btn-primary">Demo</a>
-          <a href="https://github.com/draculess99/AuthGuard-AI" target="_blank" class="btn btn-outline">Code</a>
+        <div class="project-proof" aria-label="AuthGuard PayPal workflow">
+          <div class="proof-main">Deterministic route lock → human approval → PayPal Sandbox</div>
+          <div class="proof-sub">
+            Rules and guardrails lock the route before advisory AI explanation.
+            A named reviewer approves the synthetic package, the Sandbox buyer approves
+            the order, and capture is recorded in the audit trail.
+          </div>
+          <div class="proof-note">
+            Synthetic demonstration only · No real patients, payments, insurance
+            determinations, or clinical decisions.
+          </div>
+        </div>
+        <p class="project-impact">
+          Streamlit · Flask · XGBoost · Policy RAG · PayPal Orders v2 · JSON Audit
+        </p>
+        <div class="card-links" style="flex-wrap: wrap;">
+          <a href="https://web-production-b864c99d.up.railway.app" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary">Demo</a>
+          <a href="https://github.com/draculess99/AuthGuard-AI/tree/feature/paypal-authguard" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline">Code</a>
+          <a href="https://devpost.com/software/clearpay-agent" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline">Devpost</a>
+        </div>
+      </div>
+
+      <!-- Project 9: MRI Vision Core OpenCV 5 + AWS -->
+      <div class="card">
+        <a href="https://devpost.com" target="_blank" rel="noopener noreferrer"
+          style="position: absolute; top: 24px; right: 24px; z-index: 10;">
+          <img src="https://img.shields.io/badge/DEVPOST-OpenCV_AI_Competition_2026-7C3AED?style=flat"
+            alt="DEVPOST · OpenCV AI Competition 2026" style="border-radius: 4px;" />
+        </a>
+
+        <div class="card-icon">🔬</div>
+        <h3 class="card-title">MRI Vision Core OpenCV 5 + AWS</h3>
+        <p class="card-desc">
+          A deterministic OpenCV 5 image-processing and evidence workflow for exploring MRI slice structure, built for
+          the OpenCV AI Competition 2026 powered by AWS. Combines CLAHE enhancement, edge detection, and ChangeGuard
+          baseline stability verification with a containerized AWS Lambda Function URL for auditable evidence manifest generation.
+        </p>
+        <div class="project-proof" aria-label="OpenCV 5 and AWS Lambda workflow">
+          <div class="proof-main">Deterministic OpenCV 5 pipeline + containerized AWS Lambda evidence API</div>
+          <div class="proof-sub">CLAHE contrast enhancement &middot; Canny edge overlay &middot; ChangeGuard baseline comparison &middot; SHA-256 evidence manifest</div>
+          <div class="proof-note">100% pixel-deterministic &middot; research &amp; educational prototype &middot; non-diagnostic</div>
+        </div>
+        <p class="project-impact">
+          OpenCV 5 &middot; AWS Lambda &middot; Docker Container &middot; ChangeGuard &middot; Streamlit
+        </p>
+        <div class="card-links" style="flex-wrap: wrap;">
+          <a href="https://mri-vision-core-production-6dfd.up.railway.app" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary">Demo</a>
+          <a href="https://github.com/draculess99/MRI-Vision-Core" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline">Code</a>
+          <a href="https://gpint2fywbzbcy5crjldc2j6oi0pmxyb.lambda-url.us-east-1.on.aws/" target="_blank"
+            rel="noopener noreferrer" class="btn btn-outline">Lambda API</a>
+        </div>
+      </div>
+
+      <!-- Project 10: MRI Evidence-based Copilot -->
+      <div class="card">
+        <img src="https://img.shields.io/badge/Portfolio-Evidence--Based_Copilot-2ea44f?style=flat"
+          alt="Evidence-Based Copilot" style="position: absolute; top: 24px; right: 24px; border-radius: 4px;" />
+
+        <div class="card-icon">🩺</div>
+        <h3 class="card-title">MRI Evidence-based Copilot</h3>
+        <p class="card-desc">
+          A deterministic multi-agent evidence review copilot that evaluates MRI slice processing, ChangeGuard baseline
+          stability, and technical metadata. Coordinates three specialized agents (Evidence Specialist, Safety Critic,
+          and Consensus Coordinator) with mandatory human-in-the-loop review before finalizing evidence bundles.
+        </p>
+        <div class="project-proof" aria-label="Evidence review workflow">
+          <div class="proof-main">3-agent deterministic evidence review &rarr; mandatory human approval gate</div>
+          <div class="proof-sub">Evidence Specialist &middot; Safety Critic (zero diagnostic claims) &middot; Consensus Coordinator</div>
+          <div class="proof-note">Deterministic rule-based evaluation &middot; auditable decision trail &middot; non-diagnostic</div>
+        </div>
+        <p class="project-impact">
+          Multi-Agent Review &middot; Evidence Manifest &middot; Safety Guardrails &middot; Human-in-the-Loop
+        </p>
+        <div class="card-links" style="flex-wrap: wrap;">
+          <a href="https://mri-vision-core-production-6dfd.up.railway.app" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary">Demo</a>
+          <a href="https://github.com/draculess99/MRI-Vision-Core" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline">Code</a>
         </div>
       </div>
 
